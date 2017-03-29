@@ -1,17 +1,10 @@
 {
   "name": "slimek/praline",
-  "description": "PHP 7.0 utilities library",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Slimek Wu",
-      "email": "slimek.wu@nxtomo.tw"
-    }
-  ],
-  
+  "description": "PHP 7 Utility Library",
+
   "autoload": {
-    "psr-0": {
-      "Praline": "src"
+    "psr-4": {
+      "Praline\\": "src/"
     }
   }
 }
