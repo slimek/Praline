@@ -1,6 +1,12 @@
 {
   "name": "slimek/praline",
+  "type": "library",
   "description": "PHP 7 Utility Library",
+  "license": "MIT",
+
+  "require": {
+    "php": ">=7.0.0"
+  },
 
   "autoload": {
     "psr-4": {
