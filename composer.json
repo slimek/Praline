@@ -4,8 +4,6 @@
   "description": "PHP 7 Utility Library",
   "license": "MIT",
   
-  "version": "0.0.1",
-
   "require": {
     "php": ">=7.0.0"
   },
