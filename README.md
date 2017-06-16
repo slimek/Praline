@@ -5,10 +5,15 @@ Praline
 
 安裝與使用方式請參見[說明文件](doc/README.md)。
 
+程式庫
+------
+
+以下列出本程式庫相依的其他程式庫：
+
+（暫無）
+
+
 補充
 ----
 
 [Praline](https://en.wikipedia.org/wiki/Praline) 是泛指帶有核果果仁的甜食。
-
-----
-© 2017 Slimek Wu
