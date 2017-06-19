@@ -2,9 +2,9 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Praline\LetterCase;
+use Praline\Utils\LetterCase;
 
-class LetterCaseTest extends TestCase
+class UtilsLetterCaseTest extends TestCase
 {
     public function testSplitFromKebab()
     {

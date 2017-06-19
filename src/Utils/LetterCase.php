@@ -1,5 +1,5 @@
 <?php
-namespace Praline;
+namespace Praline\Utils;
 
 class LetterCase
 {
