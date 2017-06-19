@@ -10,14 +10,14 @@ class LetterCase
     const SNAKE  = 4;  // snake_case  lower   lower   _ (underscore)
 
     // 通用轉換函式
-    public static function convert(string $name, $fromStyle, $toStyle): string
+    public static function convert(string $name, int $fromStyle, int $toStyle): string
     {
         $words = static::split($name, $fromStyle);
         return static::join($words, $toStyle);
     }
 
     // 將複合字串按照指定的形式來分割，並全部轉成小寫之後，組成陣列傳回
-    public static function split(string $name, $fromStyle): array
+    public static function split(string $name, int $fromStyle): array
     {
         if ($name === '') {
             return [];
@@ -34,7 +34,7 @@ class LetterCase
         throw new \Exception('Unsupported style: ' . $fromStyle);
     }
 
-    public static function join($words, $toStyle): string
+    public static function join(array $words, int $toStyle): string
     {
         switch ($toStyle) {
             case static::CAMEL:
