@@ -72,6 +72,30 @@ class UtilsLetterCaseTest extends TestCase
         );
     }
 
+    public function testKebabToPascal()
+    {
+        $this->assertEquals(
+            '',
+            LetterCase::kebabToPascal('')
+        );
+
+        $this->assertEquals(
+            'Reimu',
+            LetterCase::kebabToPascal('reimu')
+        );
+
+        $this->assertEquals(
+            'AliceMarisa',
+            LetterCase::kebabToPascal('alice-marisa')
+        );
+
+        // 除了將 '-' 後面的字元轉成大寫，其他字元不做改變
+        $this->assertEquals(
+            'ChenRanYUKARI',
+            LetterCase::kebabToPascal('chen-Ran-YUKARI')
+        );
+    }
+
     public function testSnakeToCamel()
     {
         $this->assertEquals(

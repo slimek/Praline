@@ -3,10 +3,11 @@ namespace Praline\Utils;
 
 class LetterCase
 {
-                      //              首字    字頭     分隔
-    const CAMEL = 1;  // camelCase   lower   Upper   (無)
-    const KEBAB = 2;  // kebab-case  lower   Lower   -
-    const SNAKE = 3;  // snake_case  lower   lower   _
+                       //              首字    字頭     分隔
+    const CAMEL  = 1;  // camelCase   lower   Upper   (無)
+    const PASCAL = 2;  // PascalCase  Upper   Upper
+    const KEBAB  = 3;  // kebab-case  lower   Lower   - (dash)
+    const SNAKE  = 4;  // snake_case  lower   lower   _ (underscore)
 
     // 通用轉換函式
     public static function convert(string $name, $fromStyle, $toStyle): string
@@ -48,6 +49,18 @@ class LetterCase
                 }
 
                 return $name;
+
+            case static::PASCAL:
+                $name = '';
+                if (empty($words)) {
+                    return $name;
+                }
+
+                for ($i = 0; $i < count($words); $i++) {
+                    $name .= ucfirst($words[$i]);
+                }
+
+                return $name;
         }
 
         throw new \Exception('Unsupported style: ' . $toStyle);
@@ -63,6 +76,16 @@ class LetterCase
         }
 
         return static::convert($name, static::KEBAB, static::CAMEL);
+    }
+
+    // 將 kebab-case 轉換為 PascalCase
+    public static function kebabToPascal(string $name): string
+    {
+        if ($name === '') {
+            return $name;
+        }
+
+        return static::convert($name, static::KEBAB, static::PASCAL);
     }
 
     // 將 snake_case 轉換為 camelCase
