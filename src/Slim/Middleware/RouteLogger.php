@@ -8,7 +8,7 @@ use Slim\Http\
     Request, Response, Uri
 };
 
-// Parline
+// Praline
 use Praline\ContainerIds;
 
 // Slim Framework Middleware - Route 用 Logger
