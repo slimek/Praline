@@ -10,8 +10,7 @@ Praline
 
 以下列出本程式庫相依的其他程式庫：
 
-（暫無）
-
+- [Slim Framework](https://www.slimframework.com/)：網路服務微框架。Praline 在設計上預期會與 Slim Framework 配合使用。
 
 補充
 ----
