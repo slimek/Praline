@@ -3,6 +3,32 @@ Documentation
 
 這個目錄是 Parline 程式庫的說明文件。
 
+Monolog
+-------
+
+### MonologFluentHandler
+
+在透過 Monolog 輸出歷程到 Fluentd 的時候，預設的格式不是很漂亮，此處提供一個可讀性較高的輸出格式。
+
+#### 使用範例
+
+在 Slim 框架的 dependencies.php 之中：
+
+```php
+$container['logger'] = function ($container) {
+
+    $logger = new Monolog\Logger('logger-channel');
+    $handler = new \Utils\MonologFluentHandler('fluentd-host');
+    $logger->pushHandler($handler);
+    return $logger;
+};
+```
+
+輸出的格式範例：
+
+`2014-06-07 13:00:05 <tag>.INFO: Hello World! []`
+
+
 Slim\Middleware
 ---------------
 
