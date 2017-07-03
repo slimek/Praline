@@ -18,7 +18,7 @@ Monolog
 $container['logger'] = function ($container) {
 
     $logger = new Monolog\Logger('logger-channel');
-    $handler = new \Utils\MonologFluentHandler('fluentd-host');
+    $handler = new Praline\Monolog\MonologFluentHandler('fluentd-host');
     $logger->pushHandler($handler);
     return $logger;
 };
