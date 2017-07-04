@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-- 新增 BadRequest 與 UserError 類別。
+- 新增 BadRequest、ErrorCode 與 UserError 類別。
 
 ### 0.0.5 (2017-07-03)
 
