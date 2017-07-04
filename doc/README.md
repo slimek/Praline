@@ -3,6 +3,17 @@ Documentation
 
 這個目錄是 Parline 程式庫的說明文件。
 
+Error
+-----
+
+### UserError
+
+表示使用者操作錯誤的異常類別。
+
+### BadRequest
+
+表示客戶端發送要求的參數不合規格，間接表示客戶端程式可能有錯誤。
+
 Monolog
 -------
 
