@@ -1,8 +1,11 @@
 Change Log
 ==========
 
+### 0.0.6 (2017-07-04)
+
 - 新增 Slim\Controller 與 ResponseHelperTrait 類別。
 - 新增 Error\BadRequest、ErrorCode 與 UserError 類別。
+- RouteLogger 可攔截 BadRequest 與 UserError 異常。
 
 ### 0.0.5 (2017-07-03)
 

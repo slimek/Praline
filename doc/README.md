@@ -66,6 +66,8 @@ Slim\Middleware
 
 可以加裝在 Route 上面的 Middleware，記錄每一次 API 呼叫的網址以及其回應 status code。
 
+會攔截處理要求時擲出的各種異常，輸出適當的記錄並產生回應。
+
 
 Utils
 ----
