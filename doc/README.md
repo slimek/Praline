@@ -46,6 +46,19 @@ $container['logger'] = function ($container) {
 `2014-06-07 13:00:05 <tag>.INFO: Hello World! []`
 
 
+Slim
+----
+
+### Controller
+
+Controllers 的基底類別，提供參數檢查與組裝回應的功能。
+
+### ResponseHelperTrait
+
+對 Slim 的 Response 提供一些輔助的功能，例如：
+- 避免 UTF-8 字元被以 URL encode 處理。
+
+
 Slim\Middleware
 ---------------
 
