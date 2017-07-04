@@ -5,7 +5,8 @@ namespace Praline\Error;
 // - Praline 使用的 error codes 皆為負數，應用程式請使用正數
 class ErrorCode
 {
-    const NONE = 0;
+    // 如果是由 PHP 系統或第三方套件擲出的 Throwable，code 通常是這個值
+    const UNKNOWN = 0;
 
     //------------------------------------------------------------------------------------------------------------------
     // User Error
