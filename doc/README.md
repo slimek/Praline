@@ -46,6 +46,14 @@ $container['logger'] = function ($container) {
 `2014-06-07 13:00:05 <tag>.INFO: Hello World! []`
 
 
+Session
+-------
+
+### Access Token
+
+傳給客戶端用以呼叫 API 的授權碼，由發行時間（精確度到微秒）及 session ID 組成，可轉換為 Base64 字串。
+
+
 Slim
 ----
 
