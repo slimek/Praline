@@ -11,15 +11,14 @@ use Slim\Http\
 // Praline
 use Praline\ContainerIds;
 use Praline\Error\{BadRequest, UserError};
+use Praline\Slim\Middleware;
 
 // Slim Framework Middleware - Route 用 Logger
 // 1. API 呼叫與回應的歷程記錄
 // 2. 攔截異常，輸出錯誤訊息
 // 通常會是最外層的 middleware
-class RouteLogger
+class RouteLogger extends Middleware
 {
-    use \Praline\Slim\ResponseHelperTrait;
-
     /** @var  LoggerInterface */
     private $logger;
 
@@ -50,7 +49,7 @@ class RouteLogger
                 $ue->getMessage() . "({$ue->getCode()})"
             );
 
-            $response = $this->withJson($response, $this->makeResult($ue), $ue->getHttpStatusCode());
+            $response = $this->withJson($response, $this->makeResultFromThrowable($ue), $ue->getHttpStatusCode());
 
         } catch (BadRequest $br) {
 
@@ -60,7 +59,7 @@ class RouteLogger
                 $br->getMessage() . PHP_EOL . $br->getTraceAsString()
             );
 
-            $response = $this->withJson($response, $this->makeResult($br), 400);
+            $response = $this->withJson($response, $this->makeResultFromThrowable($br), 400);
 
         } catch (\Throwable $t) {
 
@@ -68,23 +67,11 @@ class RouteLogger
 
             $this->logger->error($t->getMessage() . PHP_EOL . $t->getTraceAsString());
 
-            $response = $this->withJson($response, $this->makeResult($t), 500);
+            $response = $this->withJson($response, $this->makeResultFromThrowable($t), 500);
         }
 
         $this->logger->info($response->getStatusCode());
 
         return $response;
-    }
-
-    // code 可省略：通常我們會直接使用 Throwable 的 code
-    // 不過衍生類別或許會想針對特定的錯誤另定不同的 code
-    protected function makeResult(\Throwable $t, $code = null)
-    {
-        return [
-          'error' => [
-              'code' => $code ?? $t->getCode(),
-              'message' => $t->getMessage(),
-          ],
-        ];
     }
 }

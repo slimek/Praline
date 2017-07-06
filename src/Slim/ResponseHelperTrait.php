@@ -5,7 +5,7 @@ namespace Praline\Slim;
 use Slim\Http\Response;
 
 // 給 Slim 的 Response 補充一些功能
-// 這個 Trait 可供各 Controllers（引入於基底類別 Controller）與各種 Middleware 共同使用
+// 這個 Trait 可供各 Controllers 與各種 Middleware 共同使用（透過基底類別 Controller 及 Middleware 引入）
 trait ResponseHelperTrait
 {
     // Slim Response::withJson() 內部使用 json_encode() 來產生 JSON 資料，
