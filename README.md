@@ -12,6 +12,7 @@ Praline
 
 - [Monolog](https://github.com/Seldaek/monolog)：歷程記錄抽象介面。
 - [Slim Framework](https://www.slimframework.com/)：網路服務微框架。Praline 在設計上預期會與 Slim Framework 配合使用。
+- [Stringy](https://github.com/danielstjules/Stringy)：UTF-8 字串操作。
 
 補充
 ----

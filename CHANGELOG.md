@@ -2,7 +2,7 @@ Change Log
 ==========
 
 - 新增 Session\AccessToken 類別
-- 新增 Utils\Cache 類別
+- 新增 Utils\Cache、Stringy 類別
 
 ### 0.0.6 (2017-07-04)
 

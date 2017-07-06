@@ -82,7 +82,7 @@ Utils
 
 ### Cache
 
-將 [PSR-6](http://www.php-fig.org/psr/psr-6/) 的 cache 介面包裝成比較容易理解的 key-value 形式
+將 [PSR-6](http://www.php-fig.org/psr/psr-6/) 的 cache 介面包裝成比較容易理解的 key-value 形式。
 
 ### LetterCase
 
@@ -101,3 +101,7 @@ $app->post('/{controller}/{action}', function ($request, $response, $args) {
 });
 
 ```
+
+### Stringy
+
+[Stringy](https://github.com/danielstjules/Stringy) 程式庫的擴充版本。
