@@ -1,8 +1,12 @@
 Change Log
 ==========
 
+### 0.1.0 (2017-07-07)
+
+- 提供「輪替式 access token 認證授權」網路設施，由下面的各類別構成
 - 新增 Session\AccessTokenInfo、Session、SessionManager 類別
 - 新增 Slim\Middleware 類別
+- 新增 Slim\Middleware\SessionAuthorizer 類別
 - 新增 Utils\Cache、Stringy 類別
 
 ### 0.0.6 (2017-07-04)
