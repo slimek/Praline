@@ -4,7 +4,7 @@ namespace Tests;
 use PHPUnit\Framework\TestCase;
 use Praline\Session\AccessTokenInfo;
 
-class SessionAccessTokenTest extends TestCase
+class SessionAccessTokenInfoTest extends TestCase
 {
     public function testAccessToken()
     {
