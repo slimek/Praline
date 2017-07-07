@@ -53,6 +53,18 @@ Session
 
 傳給客戶端用以呼叫 API 的授權碼，由發行時間（精確度到微秒）及 session ID 組成，可轉換為 Base64 字串。
 
+### Session
+
+使用者身份認證後，保存其工作階段資訊的物件。
+
+### SessionDataInterface
+
+Session 可以保有一個應用提供的資料物件，此物件必須實作 SessionDataInterface 介面。
+
+### SessionManager
+
+Session 物件的管理元件，通常會作為 DI 服務物件而在 dependencies.php 中建立。 
+
 
 Slim
 ----

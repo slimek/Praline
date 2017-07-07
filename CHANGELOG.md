@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-- 新增 Session\AccessTokenInfo 類別
+- 新增 Session\AccessTokenInfo、Session、SessionManager 類別
 - 新增 Slim\Middleware 類別
 - 新增 Utils\Cache、Stringy 類別
 

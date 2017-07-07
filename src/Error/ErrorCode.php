@@ -6,7 +6,7 @@ namespace Praline\Error;
 class ErrorCode
 {
     // 如果是由 PHP 系統或第三方套件擲出的 Throwable，code 通常是這個值
-    const UNKNOWN = 0;
+    public const UNKNOWN = 0;
 
     //------------------------------------------------------------------------------------------------------------------
     // User Error
@@ -14,13 +14,13 @@ class ErrorCode
     //------------------------------------------------------------------------------------------------------------------
 
     // 登入身份驗證失敗
-    const PERMISSION_DENIED = -1;
+    public const PERMISSION_DENIED = -1;
 
     // 短時間內嘗試登入次數太多，暫時不允許登入
-    const LOGIN_THROTTLED = -2;
+    public const LOGIN_THROTTLED = -2;
 
     // Session 未找到 - 可能是 access token 已經過期，請玩家重新登入即可
-    const SESSION_NOT_FOUND = -3;
+    public const SESSION_NOT_FOUND = -3;
 
     //------------------------------------------------------------------------------------------------------------------
     // Bad Request
@@ -28,11 +28,18 @@ class ErrorCode
     //------------------------------------------------------------------------------------------------------------------
 
     // 尚未驗證身份。通常是因為尚未經過 Authentication 驗證就呼叫需要授權的 API
-    const NOT_AUTHORIZED = -11;
+    public const NOT_AUTHORIZED = -11;
 
     // 缺少必要的 Request 參數
-    const MISSING_PARAMETER = -12;
+    public const MISSING_PARAMETER = -12;
 
     // Request 參數格式不正確
-    const INVALID_PARAMETER = -13;
+    public const INVALID_PARAMETER = -13;
+
+    // 缺少必要的 Request Header
+    public const MISSING_HEADER = -14;
+
+    // 相同的要求正在處理中
+    // - 這種錯誤很少見，只發生在伺服器處理要求耗時太久（等待 I/O、死結等），還沒處理完 client 側就又重發相同要求的時候
+    public const REQUEST_CONFLICT = -15;
 }

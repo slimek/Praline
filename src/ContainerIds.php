@@ -5,4 +5,5 @@ namespace Praline;
 class ContainerIds
 {
     public const LOGGER = 'logger';
+    public const SESSION_MANAGER = 'sessionManager';
 }
