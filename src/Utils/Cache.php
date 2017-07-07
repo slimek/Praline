@@ -71,6 +71,21 @@ class Cache
         return true;
     }
 
+    // 刪除指定資料，如果成功的話傳回 true，該資料不存在傳回 false
+    public function delete(string $key): bool
+    {
+        $item = $this->pool->getItem($key);
+        if ($item->isHit()) {
+            $deleted = $this->pool->deleteItem($key);
+            if ($deleted === false) {
+                throw new \Exception("Delete cache failed, key: '$key'");
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     // 產生從現在算起的到期時間
     private function generateExpireTime(): \DateTime
     {

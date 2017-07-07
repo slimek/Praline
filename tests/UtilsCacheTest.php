@@ -50,6 +50,18 @@ class UtilsCacheTest extends TestCase
         $user3 = new UserInfo(2, 'Reimu');
         $saved = $cache->exclusiveSave('user', $user3);
         $this->assertFalse($saved);
+
+        // 刪除物件
+        $deleted = $cache->delete('user');
+        $this->assertTrue($deleted);
+
+        // 可以互斥寫入了
+        $saved = $cache->exclusiveSave('user', $user3);
+        $this->assertTrue($saved);
+
+        // 刪除不存在的物件，傳回 false
+        $deleted = $cache->delete('none');
+        $this->assertFalse($deleted);
     }
 
     private function assertUserInfo(UserInfo $user, UserInfo $cached)
