@@ -61,6 +61,10 @@ Slim
 
 Controllers 的基底類別，提供參數檢查與組裝回應的功能。
 
+### Middleware
+
+Middleware 的基底類別，提供異常攔截機制與歷程記錄用的 logger 。 
+
 ### ResponseHelperTrait
 
 對 Slim 的 Response 提供一些輔助的功能，例如：
@@ -75,6 +79,12 @@ Slim\Middleware
 可以加裝在 Route 上面的 Middleware，記錄每一次 API 呼叫的網址以及其回應 status code。
 
 會攔截處理要求時擲出的各種異常，輸出適當的記錄並產生回應。
+
+### SessionAuthorizer
+
+依照 Authorization header 裡面的 access token 來驗證使用者身份。
+
+在產生回應時，無論成功或失敗都會替換下一次的 access token，並將回應記錄下來。為了做到這件事情，具有一套和 RouteLogger 相同的異常攔截機制。這機制攔截不到 SessionAuthorizor 在身份認證時期的異常 ～ 不過反正沒認證成功時，也沒必要把回應快取起來。 
 
 
 Utils
