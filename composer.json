@@ -10,6 +10,7 @@
     "psr/cache": "^1.0.1",
     "psr/log": "^1.0",
 
+    "akrabat/rka-ip-address-middleware": "^0.5.0",
     "danielstjules/stringy": "^3.1.0",
     "fluent/logger": "^1.0.0",
     "monolog/monolog": "^1.20",

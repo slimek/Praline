@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 0.2.0 (2017-07-10)
+
+- 新增 Slim\Middleware\IpAddressFilter 類別
+
 ### 0.1.0 (2017-07-07)
 
 - 提供「輪替式 access token 認證授權」網路設施，由下面的各類別構成

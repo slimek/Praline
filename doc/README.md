@@ -86,6 +86,10 @@ Middleware 的基底類別，提供異常攔截機制與歷程記錄用的 logge
 Slim\Middleware
 ---------------
 
+### IpAddressFilter
+
+除了白名單內的來源 IP 位址，其餘要求都以 403 拒絕。
+
 ### RouteLogger
 
 可以加裝在 Route 上面的 Middleware，記錄每一次 API 呼叫的網址以及其回應 status code。
