@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 0.2.1 (2017-07-10)
+
+- 改變 IpAddressFilter 建構子參數的順序，將 allowedIpAddresses 放到最後一個
+
 ### 0.2.0 (2017-07-10)
 
 - 新增 Slim\Middleware\IpAddressFilter 類別

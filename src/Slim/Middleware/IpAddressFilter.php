@@ -18,7 +18,7 @@ class IpAddressFilter extends Middleware
     /** @var  IpAddress */
     private $ipAddressMiddleware;
 
-    public function __construct(array $allowedIpAddresses, $container)
+    public function __construct($container, array $allowedIpAddresses)
     {
         parent::__construct($container);
 
