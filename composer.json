@@ -13,7 +13,6 @@
     "akrabat/rka-ip-address-middleware": "^0.5.0",
     "danielstjules/stringy": "^3.1.0",
     "fluent/logger": "^1.0.0",
-    "monolog/monolog": "^1.20",
     "slim/slim": "^3.0"
   },
   
