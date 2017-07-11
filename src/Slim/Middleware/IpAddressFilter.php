@@ -29,16 +29,12 @@ class IpAddressFilter extends Middleware
 
     public function __invoke(Request $request, Response $response, callable $next)
     {
-        $logger = $this->logger;
-
         return ($this->ipAddressMiddleware)(
             $request,
             $response,
-            function (Request $request, Response $response) use ($logger, $next) {
+            function (Request $request, Response $response) use ($next) {
 
             $ipAddress = $request->getAttribute('ip_address');
-
-            $logger->debug('IP Address: ' . $ipAddress);
 
             $found = array_search($ipAddress, $this->allowedIpAddresses);
             if ($found === false) {
