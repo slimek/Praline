@@ -5,6 +5,13 @@ use Fluent\Logger\Entity;
 use Fluent\Logger\FluentLogger;
 use Monolog\Handler\AbstractProcessingHandler;
 
+// 這個元件用來串接 Monolog 到 Fluent 的 log 輸出，並且採用可讀性較高的輸出格式
+// 使用範例：
+//
+//   $logger = new Monolog\Logger('channel-name');
+//   $handler = new Praline\Monolog\MonologFluentdHandler('fluentd-host');
+//   $logger->pushHandler($handler);
+//
 class MonologFluentHandler extends AbstractProcessingHandler
 {
     /** @var FluentLogger */
