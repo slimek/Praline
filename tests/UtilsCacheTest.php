@@ -69,4 +69,24 @@ class UtilsCacheTest extends TestCase
         $this->assertEquals($user->id, $cached->id);
         $this->assertEquals($user->name, $cached->name);
     }
+
+    public function testCacheDuration()
+    {
+        $pool = new ArrayCachePool();
+
+        // 預設存活時間 1 小時
+        $cache1h = new Cache($pool);
+        $this->assertEquals(new \DateInterval('PT1H'), $cache1h->getDuration());
+
+        $cache1s = new Cache($pool, new \DateInterval('PT1S'));
+        $this->assertEquals(new \DateInterval('PT1S'), $cache1s->getDuration());
+
+        $book = new BookInfo('Telling', 'Ursula Le Guin');
+        $cache1s->save('book-1s', $book);
+        $cache1h->save('book-1h', $book);
+        sleep(2);
+
+        $this->assertNull($cache1s->load('book-1s'));
+        $this->assertEquals($book, $cache1h->load('book-1h'));
+    }
 }
