@@ -4,8 +4,29 @@ Documentation
 這個目錄是 Parline 程式庫的說明文件。
 
 
-Error
------
+namespace DateTime
+------------------
+
+### Clock
+
+提供可全域呼叫的時鐘。透過 `setCurrent()` 可指定三種不同的時鐘類型：
+
+- `SystemClock`：系統時間，和 `new \DateTime()` 相同，也是 `Clock` 的預設行為。
+- `FixedClock`：固定時間，在單元測試的時候很好用。
+- `OffsetClock`：對參照的時鐘加上一個偏差值。在伺服器的測試與整備環境，可發揮類似「將系統時間調快一定時間」的效果，用來測試預定在未來觸發的事件而無需修改 DB 設定內容。
+
+#### 使用範例
+
+```php
+use Praline\DateTime\Clock;
+use Praline\DateTime\Clocks\{OffsetClock, SystemClock};
+
+Clock::setCurrent(OffsetClock::byWeeks(new SystemClock(), 1));  // 時間往前調快 1 周
+```
+
+
+namespace Error
+---------------
 
 ### BadRequest
 
@@ -20,8 +41,8 @@ Praline 程式庫本身使用的錯誤代碼，數值皆為負數；應用程式
 表示使用者操作錯誤的異常類別。
 
 
-Monolog
--------
+namespace Monolog
+-----------------
 
 ### MonologFluentHandler
 
@@ -46,8 +67,8 @@ $container['logger'] = function ($container) {
 `2014-06-07 13:00:05 <tag>.INFO: Hello World! []`
 
 
-Session
--------
+namespace Session
+-----------------
 
 ### Access Token
 
@@ -66,8 +87,8 @@ Session 可以保有一個應用提供的資料物件，此物件必須實作 Se
 Session 物件的管理元件，通常會作為 DI 服務物件而在 dependencies.php 中建立。 
 
 
-Slim
-----
+namespace Slim
+--------------
 
 ### Controller
 
@@ -83,8 +104,8 @@ Middleware 的基底類別，提供異常攔截機制與歷程記錄用的 logge
 - 避免 UTF-8 字元被以 URL encode 處理。
 
 
-Slim\Middleware
----------------
+namespace Slim\Middleware
+-------------------------
 
 ### IpAddressFilter
 
@@ -103,8 +124,8 @@ Slim\Middleware
 在產生回應時，無論成功或失敗都會替換下一次的 access token，並將回應記錄下來。為了做到這件事情，具有一套和 RouteLogger 相同的異常攔截機制。這機制攔截不到 SessionAuthorizor 在身份認證時期的異常 ～ 不過反正沒認證成功時，也沒必要把回應快取起來。 
 
 
-Utils
-----
+namespace Utils
+---------------
 
 ### Cache
 

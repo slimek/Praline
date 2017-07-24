@@ -1,6 +1,8 @@
 Change Log
 ==========
 
+- 新增 DateTime\Clock 類別及 3 個具體時鐘類別：SystemClock、FixedClock 與 OffsetClock。
+
 ### 0.2.1 (2017-07-10)
 
 - 改變 IpAddressFilter 建構子參數的順序，將 allowedIpAddresses 放到最後一個
