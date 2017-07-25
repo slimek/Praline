@@ -3,6 +3,13 @@ Documentation
 
 這個目錄是 Parline 程式庫的說明文件。
 
+namespace Configuration
+-----------------------
+
+### GetEnv
+
+讀取環境變數的便利函式，可以給預設值。
+
 
 namespace DateTime
 ------------------
