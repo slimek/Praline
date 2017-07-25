@@ -24,6 +24,16 @@ use Praline\DateTime\Clocks\{OffsetClock, SystemClock};
 Clock::setCurrent(OffsetClock::byWeeks(new SystemClock(), 1));  // 時間往前調快 1 周
 ```
 
+### Duration
+
+擴充 `DateInterval` 的功能，提供方便的建造函式，例如想要一段五分鐘的時間：
+
+```php
+use Praline\DateTime\Duration;
+
+$fiveMinutes = Duration::minutes(5);
+``` 
+
 
 namespace Error
 ---------------

@@ -2,6 +2,7 @@ Change Log
 ==========
 
 - 新增 DateTime\Clock 類別及 3 個具體時鐘類別：SystemClock、FixedClock 與 OffsetClock。
+- 新增 DateTime\Duration 類別
 
 ### 0.2.1 (2017-07-10)
 

@@ -18,6 +18,16 @@ class DateTimeClocksOffsetClockTest extends TestCase
         $c2 = new OffsetClock($fc, 'PT6H');
         $this->assertEquals(new \DateTime('2017-04-05 22:30'), $c2->now());
 
+        $c3 = OffsetClock::byWeeks($fc, 4);
+        $this->assertEquals(new \DateTime('2017-05-03 16:30'), $c3->now());
+
+        $c4 = OffsetClock::byDays($fc, 15);
+        $this->assertEquals(new \DateTime('2017-04-20 16:30'), $c4->now());
+
+        $c5 = OffsetClock::byDays($fc, -7);
+        $this->assertEquals(new \DateTime('2017-03-29 16:30'), $c5->now());
+
+
         // 配置給全域 Clock
 
         Clock::setCurrent($c1);
