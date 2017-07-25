@@ -12,6 +12,7 @@ class Controller
     const PARAM_STRING = 'string';
     const PARAM_NUMBER = 'number';
     const PARAM_OBJECT = 'object';
+    const PARAM_ARRAY  = 'array';
 
     // 檢查必需的參數是否存在、以及型別是否符合預期
     // - 假定全部 POST API 都要求用 JSON 格式的 body 來傳遞參數，
@@ -30,7 +31,7 @@ class Controller
                 case static::PARAM_STRING:
                     if (!is_string($value)) {
                         throw new BadRequest(
-                            "Invalid $name: '$value', should be a string",
+                            "Invalid param: '$name' should be a string",
                             ErrorCode::INVALID_PARAMETER
                         );
                     }
@@ -38,13 +39,28 @@ class Controller
                 case static::PARAM_NUMBER:
                     if (!is_numeric($value)) {
                         throw new BadRequest(
-                            "Invalid $name: '$value', should be a number",
+                            "Invalid param: '$name' should be a number",
                             ErrorCode::INVALID_PARAMETER
                         );
                     }
                     break;
                 case static::PARAM_OBJECT:
-                    // 無法針對物件的內容檢查，先跳過
+                    if (!is_object($value)) {
+                        throw new BadRequest(
+                            "Invalid param: '$name' should be an object",
+                            ErrorCode::INVALID_PARAMETER
+                        );
+                    }
+                    // TODO: 對物件的內容作檢查
+                    break;
+                case static::PARAM_ARRAY:
+                    if (!is_array($value)) {
+                        throw new BadRequest(
+                            "Invalid param: '$name' should be an array",
+                            ErrorCode::INVALID_PARAMETER
+                        );
+                    }
+                    // TODO: 對陣列的內容作檢查
                     break;
                 default:
                     throw new BadRequest(
