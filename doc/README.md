@@ -13,7 +13,7 @@ namespace DateTime
 
 - `SystemClock`：系統時間，和 `new \DateTime()` 相同，也是 `Clock` 的預設行為。
 - `FixedClock`：固定時間，在單元測試的時候很好用。
-- `OffsetClock`：對參照的時鐘加上一個偏差值。在伺服器的測試與整備環境，可發揮類似「將系統時間調快一定時間」的效果，用來測試預定在未來觸發的事件而無需修改 DB 設定內容。
+- `OffsetClock`：對參照的時鐘加上一個偏差值。在伺服器的測試與整備環境，可發揮類似「將系統時鐘調快一定時間」的效果，方便測試預定在未來觸發的事件而無需修改 DB 設定內容。
 
 #### 使用範例
 
@@ -26,7 +26,7 @@ Clock::setCurrent(OffsetClock::byWeeks(new SystemClock(), 1));  // 時間往前�
 
 ### Duration
 
-擴充 `DateInterval` 的功能，提供方便的建造函式，例如想要一段五分鐘的時間：
+擴充 `\DateInterval` 的功能，提供方便的建造函式，例如想要一段五分鐘的時間：
 
 ```php
 use Praline\DateTime\Duration;
