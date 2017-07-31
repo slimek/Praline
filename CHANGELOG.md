@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+### 0.4.0 (2017-07-31)
+
+- RouteLogger 增加 options 參數
+    - 增加 ignoreMethods，忽略指定的 HTTP method
+
 ### 0.3.0 (2017-07-25)
 
 - 新增 Configuration\GetEnv 類別

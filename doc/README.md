@@ -134,6 +134,15 @@ namespace Slim\Middleware
 
 會攔截處理要求時擲出的各種異常，輸出適當的記錄並產生回應。
 
+可作為 application middleware 來記錄所有的 API 呼叫：
+
+```php
+$container = $app->getContainer();
+$app->add(new RouteLogger($container, [
+    'ignoreMethods' => ['OPTIONS'],  // 忽略 CORS 的 OPTIONS 呼叫
+]);    
+```
+
 ### SessionAuthorizer
 
 依照 Authorization header 裡面的 access token 來驗證使用者身份。

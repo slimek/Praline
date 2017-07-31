@@ -8,11 +8,21 @@ use Slim\Http\{Request, Response, Uri};
 // 1. API 呼叫與回應的歷程記錄
 // 2. 攔截異常，輸出錯誤訊息
 // 通常會是最外層的 middleware
+// 選項：
+// - ignoreMethods：這些 methods 跳過不記錄，常用於排除 CORS 的 OPTIONS 要求。
+//                  注意 method 名稱必須是全大寫
 class RouteLogger extends Middleware
 {
-    public function __construct($container)
+    /** @var array */
+    private $ignoreMethods = [];
+
+    public function __construct($container, $options = [])
     {
         parent::__construct($container);
+
+        if (array_key_exists('ignoreMethods', $options)) {
+            $this->ignoreMethods = $options['ignoreMethods'];
+        }
     }
 
     public function __invoke(Request $request, Response $response, $next)
@@ -24,11 +34,18 @@ class RouteLogger extends Middleware
                       ? $uri->getPath()
                       : $uri->getPath() . '?' . $uri->getQuery();
 
-        $this->logger->info($pathAndQuery);
+        $method = $request->getMethod();
+        $ignored = in_array($method, $this->ignoreMethods);
+
+        if (!$ignored) {
+            $this->logger->info($method . ' ' . $pathAndQuery);
+        }
 
         $response = $this->processRequestAndCatchAll($request, $response, $next);
 
-        $this->logger->info($response->getStatusCode());
+        if (!$ignored) {
+            $this->logger->info($response->getStatusCode());
+        }
 
         return $response;
     }
