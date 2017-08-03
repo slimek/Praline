@@ -1,8 +1,11 @@
 Change Log
 ==========
 
+### 0.5.0 (2017-08-03)
+
 - IpAddressFilter 增加 options 參數
     - 增加 checkProxyHeaders 與 trustedProxies，接受來自 proxy 的 forwarded 位址
+- 增加 ErrorCode::INVALID_CREDENTIAL (-16)    
 
 ### 0.4.0 (2017-07-31)
 

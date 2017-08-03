@@ -42,4 +42,8 @@ class ErrorCode
     // 相同的要求正在處理中
     // - 這種錯誤很少見，只發生在伺服器處理要求耗時太久（等待 I/O、死結等），還沒處理完 client 側就又重發相同要求的時候
     public const REQUEST_CONFLICT = -15;
+
+    // 身份憑證無效
+    // - 用於程式自動登入（無須玩家輸入資訊）、但驗證卻失敗的時候
+    public const INVALID_CREDENTIAL = -16;
 }
