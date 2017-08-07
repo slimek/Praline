@@ -108,7 +108,8 @@ class SessionAuthorizer extends Middleware
         }
 
         // 既然確認是新的要求，就替換 access token
-        $session->advanceAccessToken();
+        /** @var string $nextAccessToken */
+        $nextAccessToken = $session->advanceAccessToken();
         $this->sessionManager->updateSession($session);
 
         // Step 3：處理要求，並將回應快取
@@ -121,7 +122,7 @@ class SessionAuthorizer extends Middleware
 
         $this->logger->debug('Response JSON: ' . $json);
 
-        $nextAccessToken = $session->setResponseJson($json);
+        $session->setResponseJson($json);
         $this->sessionManager->updateSession($session);
 
         return $response->withHeader(SessionManager::NEXT_ACCESS_TOKEN_HEADER_NAME, $nextAccessToken);

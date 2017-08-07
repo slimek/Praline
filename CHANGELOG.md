@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+### 0.5.1 (2017-08-07)
+
+- 修正 Session::advanceAccessToken() 及 SessionAuthorizer
+    - 未正確將 next access token 放入 X-Next-Access-Token 標頭中
+
 ### 0.5.0 (2017-08-03)
 
 - IpAddressFilter 增加 options 參數

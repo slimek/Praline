@@ -68,11 +68,12 @@ class Session
     }
 
     // 產生新的 access token 並且向前替換，同時清除 cachedResponseJson
-    public function advanceAccessToken()
+    public function advanceAccessToken(): string
     {
         $this->cachedAccessToken = $this->nextAccessToken;
         $this->nextAccessToken = AccessTokenInfo::createAtNow($this->sessionId)->toBase64();
         $this->cachedResponseJson = null;
+        return $this->nextAccessToken;
     }
 
     public function setResponseJson(string $responseJson)
