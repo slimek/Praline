@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 0.6.0 (2017-08-10)
+
+- 新增 GetEnv::int() 函式
+
 ### 0.5.1 (2017-08-07)
 
 - 修正 Session::advanceAccessToken() 及 SessionAuthorizer

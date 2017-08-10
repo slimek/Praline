@@ -10,6 +10,18 @@ namespace Configuration
 
 讀取環境變數的便利函式，可以給預設值。
 
+目前支援的型別有：bool、int、string。
+
+#### 使用範例
+
+use Praline\Configuration\GetEnv;
+
+```php
+return [
+    'enableDebug' => GetEnv::bool('ENABLE_DEBUG', false),
+    'apiHost' => GetEnv::string('API_HOST'),
+];
+```
 
 namespace DateTime
 ------------------

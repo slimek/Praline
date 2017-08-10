@@ -21,6 +21,18 @@ class GetEnv
         return filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
     }
 
+    // 讀取環境變數並當作 int 來解釋
+    public static function int(string $valueName, int $defaultValue = null): ?int
+    {
+        $value = getenv($valueName, true) ?: getenv($valueName);
+
+        if ($value === false) {
+            return $defaultValue;
+        }
+
+        return filter_var($value, FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+    }
+
     // 讀取環境變數並直接當作 string 來解釋
     //   找不到環境變數且沒有預設值，傳回 null
     public static function string(string $valueName, string $defaultValue = null): ?string

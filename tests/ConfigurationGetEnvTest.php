@@ -52,13 +52,29 @@ class ConfigurationGetEnvTest extends TestCase
         $this->assertNull(GetEnv::bool('PRALINE_TEST_FLAG'));
     }
 
+    public function testGetEnvInt()
+    {
+        $this->assertNull(GetEnv::int('PRALINE_TEST_COUNT'));
+        $this->assertEquals(-13, GetEnv::int('PRALINE_TEST_COUNT', -13));
+
+        putenv('PRALINE_TEST_COUNT=7');
+        $this->assertEquals(7, GetEnv::int('PRALINE_TEST_COUNT'));
+
+        // 無效數值
+
+        putenv('PRALINE_TEST_COUNT=seven');
+        $this->assertNull(GetEnv::int('PRALINE_TEST_COUNT'));
+
+        putenv('PRALINE_TEST_COUNT=3.14');
+        $this->assertNull(GetEnv::int('PRALINE_TEST_COUNT'));
+    }
+
     public function testGetEnvString()
     {
         $this->assertNull(GetEnv::string('PRALINE_TEST_TEXT'));
         $this->assertEquals('Never mind!', GetEnv::string('PRALINE_TEST_TEXT', 'Never mind!'));
 
         putenv('PRALINE_TEST_TEXT=Hello world!');
-
         $this->assertEquals('Hello world!', GetEnv::string('PRALINE_TEST_TEXT'));
     }
 }
