@@ -39,4 +39,22 @@ class UtilsStringyTest extends TestCase
         $this->assertEquals('yuko', $yuyuko->afterFirst('u'));
         $this->assertEquals('ko', $yuyuko->afterLast('u'));
     }
+
+    // isBlank()
+    // - 也可以同時檢查 null 與 false
+    public function testStringyIsBlank()
+    {
+        $this->assertTrue(S::create('')->isBlank());
+        $this->assertTrue(S::create('   ')->isBlank());
+        $this->assertTrue(S::create("\n\t")->isBlank());
+        $this->assertTrue(S::create(null)->isBlank());
+        $this->assertTrue(S::create(false)->isBlank());
+
+        // 下面的不是 blank
+        $this->assertFalse(S::create(true)->isBlank());
+        $this->assertFalse(S::create(0)->isBlank());
+
+        // 下面的參數型別不被接受
+        //$this->assertFalse(S::create([])->isBlank());
+    }
 }
