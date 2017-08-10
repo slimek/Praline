@@ -4,6 +4,7 @@ Change Log
 ### 0.6.0 (2017-08-10)
 
 - 新增 GetEnv::int() 函式
+- 新增 OffsetClock::fromSystemByWeeks() 與 fromSystemByDays() 函式
 
 ### 0.5.1 (2017-08-07)
 

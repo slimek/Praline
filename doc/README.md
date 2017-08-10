@@ -38,9 +38,9 @@ namespace DateTime
 
 ```php
 use Praline\DateTime\Clock;
-use Praline\DateTime\Clocks\{OffsetClock, SystemClock};
+use Praline\DateTime\Clocks\OffsetClock;
 
-Clock::setCurrent(OffsetClock::byWeeks(new SystemClock(), 1));  // 時間往前調快 1 周
+Clock::setCurrent(OffsetClock::fromSystemByWeeks(1));  // 參照系統時鐘往前調快 1 周
 ```
 
 ### Duration

@@ -36,6 +36,16 @@ class OffsetClock implements ClockInterface
         return new OffsetClock($referenceClock, Duration::days($days));
     }
 
+    public static function fromSystemByWeeks(int $weeks): OffsetClock
+    {
+        return new OffsetClock(new SystemClock(), Duration::weeks($weeks));
+    }
+
+    public static function fromSystemByDays(int $days): OffsetClock
+    {
+        return new OffsetClock(new SystemClock(), Duration::days($days));
+    }
+
     public function now(): \DateTime
     {
         return $this->referenceClock->now()->add($this->offset);

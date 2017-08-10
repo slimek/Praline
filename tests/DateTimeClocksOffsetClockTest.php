@@ -27,6 +27,13 @@ class DateTimeClocksOffsetClockTest extends TestCase
         $c5 = OffsetClock::byDays($fc, -7);
         $this->assertEquals(new \DateTime('2017-03-29 16:30'), $c5->now());
 
+        // 下面難以精確檢查其值，比較大小即可
+
+        $c6 = OffsetClock::fromSystemByWeeks(4);
+        $this->assertGreaterThan(new \DateTime(), $c6->now());
+
+        $c7 = OffsetClock::fromSystemByDays(-12);
+        $this->assertLessThan(new \DateTime(), $c7->now());
 
         // 配置給全域 Clock
 
